@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-state-metrics
+  namespace: ns-controller
+spec:
+  ports:
+  - name: metrics
+    port: 8081
+    protocol: TCP
+    targetPort: metrics
+  selector:
+    app.kubernetes.io/instance: kube-state-metrics
+    app.kubernetes.io/name: kube-state-metrics
+  type: ClusterIP

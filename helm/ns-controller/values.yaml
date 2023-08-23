@@ -1,0 +1,10 @@
+image:
+  repository: 192.168.33.16:5000/automation/ns-controller 
+  tag: v0.0.1
+init:
+  repository: 192.168.33.16:5000/automation/cert-generator
+  tag: 0.0.1
+  secretName: cert-generator-secret
+webhookConfig:
+  webhookNsName: ns-controller-validating-webhook-ns
+  overprovisioning: 1.3

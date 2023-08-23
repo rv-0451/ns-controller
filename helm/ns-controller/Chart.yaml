@@ -1,0 +1,12 @@
+apiVersion: v2
+name: ns-controller
+description: A Helm chart for Kubernetes
+
+# A chart can be either an 'application' or a 'library' chart.
+type: application
+
+# The chart version.
+version: v0.0.1
+
+# The version number of the application being deployed.
+appVersion: "v0.0.1"

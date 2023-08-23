@@ -1,0 +1,27 @@
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: {{ .Values.webhookConfig.webhookNsName }}
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      caBundle: "" # this value should be injected by the init container
+      service:
+        name: ns-controller-webhook
+        namespace: ns-controller
+        path: /validate-v1-namespace
+        port: 443
+    name: ns-controller-webhook.ns-controller.svc
+    rules:
+      - apiGroups:
+          - ""
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+        resources:
+          - namespaces
+        scope: "*"
+    sideEffects: None
